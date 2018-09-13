@@ -5,6 +5,7 @@ public class Apto {
 	private String cor;
 	private String nomeCondominio;
 	private int numero;
+	private double valor;
 	
 	public double getArea() {
 		return area;
@@ -30,5 +31,12 @@ public class Apto {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
+	public double getValor() {
+		return valor;
+	}
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+	
 	
 }
