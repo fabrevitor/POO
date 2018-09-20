@@ -4,6 +4,7 @@ public class Motor {
 	private int qtdeValvulas;
 	private double potencia;
 	private String fabricante;
+	
 	public Motor(int qtdeValvulas, double potencia, String fabricante) {
 		super();
 		this.qtdeValvulas = qtdeValvulas;

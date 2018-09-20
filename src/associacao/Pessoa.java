@@ -56,5 +56,15 @@ public class Pessoa {
 		this.carros = carros;
 	}
 	
+	public Carro getCarroMaisPotente() {
+		Carro carros = this.getCarros()[0];
+		for(int i = 0; i < this.getCarros().length; i++) {
+			if(this.getCarros()[i].getMotor().getPotencia() > carros.getMotor().getPotencia()) {
+				carros = this.getCarros()[i];
+			}
+		}
+		
+		return carros;	
+	}
 	
 }

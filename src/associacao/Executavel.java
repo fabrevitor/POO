@@ -35,6 +35,7 @@ public class Executavel {
 		c2.setMotor(m2);
 		c2.setRodas(rodas2);
 		
+		
 		Carro[] carrosp1 = {c1, c2};
 		
 		Endereco end1 = new Endereco();
@@ -51,7 +52,6 @@ public class Executavel {
 		docp1.setRg("0123456");
 		
 		Pessoa p1 = new Pessoa("Adriano", 40, docp1, enderecosp1, carrosp1);
-		
 	//	----------------------------------------------------//
 		
 		Motor motor1 = new Motor(16, 170, "Honda");
@@ -83,6 +83,7 @@ public class Executavel {
 		carro2.setMotor(motor2);
 		carro2.setRodas(rodascarro2);
 		
+		
 		Carro[] carrosp2 = {carro1, carro2};
 		
 		Endereco ender1 = new Endereco();
@@ -99,59 +100,44 @@ public class Executavel {
 		docp2.setRg("0123456");
 		
 		Pessoa p2 = new Pessoa("Vitor",20, docp2, enderecosp2, carrosp2);
+// --------------------------//
+		
 		Pessoa[] pessoas = {p1,p2};
 		
-		String modelo = " ";
-		int ano = 0;
+	Carro maisNovo = pessoas[0].getCarros()[0];
 		for (int i = 0; i < pessoas.length; i++) {
 			for(int j = 0 ;   j < pessoas[i].getCarros().length  ; j++) {
-				if(pessoas[i].getCarros()[j].getAno() > ano) {
-					ano = pessoas[i].getCarros()[j].getAno();
-					modelo = pessoas[i].getCarros()[j].getModelo();
+				if(pessoas[i].getCarros()[j].getAno() > maisNovo.getAno()) {
+					maisNovo = pessoas[i].getCarros()[j];
 				}
 			}
 		}
-		double potencia = 0;
-		String modelopot = " ";
-		String nome = " ";
-		for (int i = 0; i < pessoas.length; i ++) {
-			for(int j = 0 ;   j < pessoas[i].getCarros().length  ; j++) {
-				if(pessoas[i].getCarros()[j].getMotor().getPotencia() > potencia) {
-					potencia = pessoas[i].getCarros()[j].getMotor().getPotencia();
-					modelopot = pessoas[i].getCarros()[j].getModelo();
-					nome = pessoas[i].getNome();
-				}						
-			}		
-		}
-		String nomenovo = pessoas[0].getNome();
-		int idadenovo = pessoas[0].getIdade();
-		String cpfnovo = pessoas[0].getDoc().getCpf();
-		String rgnovo = pessoas[0].getDoc().getRg();
 		
-		for (int i = 1; i < pessoas.length; i ++) {
-			if(pessoas[i].getIdade() < idadenovo) {
-				nomenovo = pessoas[i].getNome();
-				idadenovo = pessoas[i].getIdade();
-				cpfnovo = pessoas[i].getDoc().getCpf();
-				rgnovo = pessoas[i].getDoc().getRg();
+		Pessoa pessoaPotente = pessoas[0];
+		for(int i = 1; i < pessoas.length; i++) {
+			if(pessoaPotente.getCarroMaisPotente().getMotor().getPotencia() < pessoas[i].getCarroMaisPotente().getMotor().getPotencia()) {
+				pessoaPotente = pessoas[i];
 			}
 		}
 		
-		String nomevelho = pessoas[0].getNome();
-		int idadevelho = pessoas[0].getIdade();
-		Endereco[] enderecovelho = pessoas[0].getEnderecos(); 
-		
+		Pessoa PessoaNova = pessoas[0]; 
 		for (int i = 1; i < pessoas.length; i ++) {
-			if(pessoas[i].getIdade() > idadevelho) {
-				nomevelho = pessoas[i].getNome();
-				idadevelho = pessoas[i].getIdade();		
-				enderecovelho = pessoas[i].getEnderecos();
+			if(pessoas[i].getIdade() < PessoaNova.getIdade()) {
+				PessoaNova = pessoas[i];
+			}
+		}
+		
+		
+		Pessoa maisVelha = pessoas[0];
+		for (int i = 1; i < pessoas.length; i ++) {
+			if(pessoas[i].getIdade() > maisVelha.getIdade()) {
+				maisVelha = pessoas[i];
 			}
 		}	
-	System.out.println("\n---- Carro mais novo ----" + "\nModelo: " + modelo + "\nAno: " + ano);
-	System.out.println("\n---- Carro mais potente ----" + "\nPotência: " + potencia + "\nModelo: " + modelopot + "\nProprietário: " + nome);
-	System.out.println("\n---- Mais velho ----" + "\nNome: " + nomevelho + "\nIdade: " + idadevelho + "\nEndereços: " + Arrays.toString(enderecovelho));
-	System.out.println("\n---- Mais novo ----" + "\nNome: " + nomenovo + "\nIdade: " + idadenovo + "\nCPF: " + cpfnovo + "\nRG: " + rgnovo);
+	System.out.println("\n---- Carro mais novo ----" + "\nModelo: " + maisNovo.getModelo() + "\nAno: " + maisNovo.getAno());
+	System.out.println("\n---- Carro mais potente ----" + "\nPotência: " + pessoaPotente.getCarroMaisPotente().getMotor().getPotencia() + "\nModelo: " + pessoaPotente.getCarroMaisPotente().getModelo() + "\nProprietário: " + pessoaPotente.getNome());
+	System.out.println("\n---- Mais velho ----" + "\nNome: " + maisVelha.getNome() + "\nIdade: " + maisVelha.getIdade() + "\nEndereços: " + Arrays.toString(maisVelha.getEnderecos()));
+	System.out.println("\n---- Mais novo ----" + "\nNome: " + PessoaNova.getNome() + "\nIdade: " + PessoaNova.getIdade() + "\nCPF: " + PessoaNova.getDoc().getCpf() + "\nRG: " + PessoaNova.getDoc().getRg());
 	}
 
 }

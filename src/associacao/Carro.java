@@ -9,7 +9,18 @@ public class Carro {
 	private double km;
 	private  Motor motor;
 	private Roda[] rodas;
+
+	private Pessoa pessoa;
 	
+	
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+
 	public Carro(String modelo, String fabricante, int ano, double km, Motor motor, Roda[] rodas) {
 		super();
 		this.modelo = modelo;
@@ -83,6 +94,7 @@ public class Carro {
 			    + "\n"+ motor 
 			    + "\n\n" + Arrays.toString(rodas);
 	}
+
 	
 
 	
