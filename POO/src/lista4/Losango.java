@@ -44,14 +44,26 @@ public class Losango extends FormasGeom
 		this.diagA = diagA;
 		this.diagB = diagB;
 	}
-	public void calculaArea() 
+	public double calculaArea() 
 	{
 		double area = (diagA * diagB)/2;
-		System.out.println("\nA área do losango é: " + area);
+		return area;
 	}
-	public void calculaPerimetro() 
+	public double calculaPerimetro() 
 	{
 		double per = (ladoA * 2) + (ladoB * 2);
-		System.out.println("O perímetro do losango é: " + per);
+		return per;
+	}
+	public String toString() 
+	{
+	return (
+			"\nNome: " + this.getNome() +
+			"\nLado A: " + this.getLadoA() +
+			"\nLado B: " + this.getLadoB() +
+			"\nDiagonal A: " + this.getLadoA() +
+			"\nDiagonal B: " + this.getDiagB() +
+			"\nÁrea: " + this.calculaArea() +
+			"\nPerímetro: " + this.calculaPerimetro()
+			);
 	}
 }

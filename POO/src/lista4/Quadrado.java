@@ -18,16 +18,27 @@ public class Quadrado extends FormasGeom
 		this.lado = lado;
 	}
 
-	public void calculaArea() 
+	public double calculaArea() 
 	{
 		double area = lado * lado;
-		System.out.println("\nÁrea do quadrado é: " + area);
+		return area;
 	}
 	
-	public void calculaPerimetro()
+	public double calculaPerimetro()
 	{
 		double per = lado * 4;
-		System.out.println("Perímetro do quadrado é: " + per);
+		return per;
+	}
+	
+	public String toString() 
+	{
+		return (
+				"\nNome: " + this.getNome() +
+				"\nLado: " + this.getLado() + 
+				"\nÁrea: " + this.calculaArea() +
+				"\nPerímetro: " + this.calculaPerimetro()
+				);
+				
 	}
 }
 	

@@ -1,6 +1,7 @@
 package lista4;
 
-public abstract class FormasGeom {
+public abstract class FormasGeom 
+{
 	
 	private String nome;
 
@@ -22,6 +23,11 @@ public abstract class FormasGeom {
 		
 	}
 	
-	public abstract void calculaArea();
-	public abstract void calculaPerimetro();
+	public abstract double calculaArea();
+	public abstract double calculaPerimetro();
+
+
 }
+	
+	
+

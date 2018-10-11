@@ -1,6 +1,7 @@
 package lista4;
 
-public class Circulo extends FormasGeom {
+public class Circulo extends FormasGeom
+{
 	private double raio;
 
 	public double getRaio() {
@@ -15,15 +16,27 @@ public class Circulo extends FormasGeom {
 		super();
 		this.raio = raio;
 	}
-	public void calculaArea() 
+	
+	public double calculaArea() 
 	{
 		double area = (raio*raio) * 3.14;
-		System.out.println("\nA área do círculo é: " + area);
+		return area;
 	}
 	
-	public void calculaPerimetro() 
+	public double calculaPerimetro() 
 	{
 		double per = (2*3.14) * (raio * raio);
-		System.out.println("O perímetro do círculo é: " + per);
+		return per;
+	}
+	
+	public String toString() 
+	{
+		return (
+				"\nNome: " + this.getNome() +
+				"\nRaio: " + this.getRaio() + 
+				"\nÁrea: " + this.calculaArea() +
+				"\nPerímetro: " + this.calculaPerimetro()
+				);
+				
 	}
 }

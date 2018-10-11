@@ -22,14 +22,24 @@ public class Retangulo extends FormasGeom
 		this.ladoA = ladoA;
 		this.ladoB = ladoB;
 	}
-	public void calculaArea() 
+	public double calculaArea() 
 	{
 		double area = ladoA * ladoB;
-		System.out.println("\nA área do retângulo é: " + area);
+		return area;
 	}
-	public void calculaPerimetro() 
+	public double calculaPerimetro() 
 	{
 		double per = 2*(ladoA + ladoB);
-		System.out.println("O perímetro do retângulo é: " + per);
+		return per;
+	}
+	public String toString() 
+	{
+		return (
+				"\nNome: " + this.getNome() +
+				"\nLado A: " + this.getLadoA() +
+				"\nLado B: " + this.getLadoB() +
+				"\nÁrea: " + this.calculaArea() +
+				"\nPerímetro: " + this.calculaPerimetro()
+				);
 	}
 }
